@@ -10,12 +10,13 @@ namespace UnicornsAndRainbows
     {
         private IUserInterface m_userInterface;
         private IBrowserNavigator _mBrowserNavigator;
-        private MouseCount m_mouseCount = new MouseCount();
+        private IMouseCount m_mouseCount;
 
-        public UnicornsAndRainbowsController(IUserInterface userInterface, IBrowserNavigator browserNavigator)
+        public UnicornsAndRainbowsController(IUserInterface userInterface, IBrowserNavigator browserNavigator, IMouseCount mouseCount)
         {
             _mBrowserNavigator = browserNavigator;
             m_userInterface = userInterface;
+            m_mouseCount = mouseCount;
 
             userInterface.OnButtonClick += ButtonClick;
         }

@@ -18,7 +18,7 @@ namespace UnicornsAndRainbowsTests
 
             BrowserNavigatorAdapterSimulator browserNavigatorAdapter = new BrowserNavigatorAdapterSimulator();
 
-            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface,new BrowserNavigator(configuration.SearchRoot, browserNavigatorAdapter));
+            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface,new BrowserNavigator(configuration.SearchRoot, browserNavigatorAdapter), new MouseCount());
 
             userInterface.SimulateButtonClick("Puppies");
             Assert.AreEqual(configuration.SearchRoot + "Puppies", browserNavigatorAdapter.Uri.OriginalString);

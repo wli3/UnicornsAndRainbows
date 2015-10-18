@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace UnicornsAndRainbows
 {
-    class MouseCount
+    public interface IMouseCount
+    {
+        void Increase();
+        int GetCount();
+    }
+
+    public class MouseCount : IMouseCount
     {
         private int m_count;
 

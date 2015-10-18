@@ -24,8 +24,9 @@ namespace UnicornsAndRainbows
             m_configuration.SearchRoot = "http://www.bing.com/images/search?q=";
             _mBrowserNavigatorAdapter = new BrowserNavigatorAdapter();
             var browser = new BrowserNavigator(m_configuration.SearchRoot, _mBrowserNavigatorAdapter);
+            var mouseCount = new MouseCount();
 
-            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface, browser);
+            var unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface, browser, mouseCount);
         }
     }
 }
