@@ -16,12 +16,12 @@ namespace UnicornsAndRainbowsTests
             Configuration configuration = new Configuration();
             configuration.SearchRoot = "http://www.example.com/search/term=";
 
-            BrowserNavigatorSimulator browserNavigator = new BrowserNavigatorSimulator();
+            BrowserNavigatorAdapterSimulator browserNavigatorAdapter = new BrowserNavigatorAdapterSimulator();
 
-            Manager manager = new Manager(userInterface, configuration, browserNavigator);
+            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface,new BrowserNavigator(configuration.SearchRoot, browserNavigatorAdapter));
 
             userInterface.SimulateButtonClick("Puppies");
-            Assert.AreEqual(configuration.SearchRoot + "Puppies", browserNavigator.Uri.OriginalString);
+            Assert.AreEqual(configuration.SearchRoot + "Puppies", browserNavigatorAdapter.Uri.OriginalString);
             Assert.AreEqual(1, userInterface.Count);
         }
     }

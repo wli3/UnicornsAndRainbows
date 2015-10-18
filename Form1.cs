@@ -13,8 +13,7 @@ namespace UnicornsAndRainbows
     public partial class Form1 : Form
     {
         private Configuration m_configuration;
-        private BrowserNavigator m_browserNavigator;
-
+        private IBrowserNavigatorAdapter _mBrowserNavigatorAdapter;
 
         public Form1()
         {
@@ -23,10 +22,10 @@ namespace UnicornsAndRainbows
             UserInterface userInterface = new UserInterface(c_buttonUnicorns, c_buttonRainbows, c_labelCount);
             m_configuration = new Configuration();
             m_configuration.SearchRoot = "http://www.bing.com/images/search?q=";
-            m_browserNavigator = new BrowserNavigator();
+            _mBrowserNavigatorAdapter = new BrowserNavigatorAdapter();
+            var browser = new BrowserNavigator(m_configuration.SearchRoot, _mBrowserNavigatorAdapter);
 
-
-            Manager manager = new Manager(userInterface, m_configuration, m_browserNavigator);
+            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface, browser);
         }
     }
 }

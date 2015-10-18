@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnicornsAndRainbows;
 
 namespace UnicornsAndRainbowsTests
 {
-    class BrowserNavigatorSimulator: IBrowserNavigator
+    class BrowserNavigatorAdapterSimulator: IBrowserNavigatorAdapter
     {
         public Uri Uri { get; set; }
 
