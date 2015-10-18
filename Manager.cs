@@ -11,7 +11,7 @@ namespace UnicornsAndRainbows
         private IUserInterface m_userInterface;
         private Configuration m_configuration;
         private IBrowserNavigator m_browserNavigator;
-        private int m_count; 
+        private MouseCount m_mouseCount = new MouseCount();
 
         public Manager(IUserInterface userInterface, Configuration configuration, IBrowserNavigator browserNavigator)
         {
@@ -24,9 +24,9 @@ namespace UnicornsAndRainbows
 
         void ButtonClick(string searchTerm)
         {
-            m_count++;
+            m_mouseCount.Increase();
 
-            m_userInterface.SetCount(m_count);
+            m_userInterface.SetCount(m_mouseCount.GetCount());
 
             m_browserNavigator.NavigateToUrl(new Uri(m_configuration.SearchRoot + searchTerm));
 
