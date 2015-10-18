@@ -23,10 +23,10 @@ namespace UnicornsAndRainbows
             m_configuration = new Configuration();
             m_configuration.SearchRoot = "http://www.bing.com/images/search?q=";
             _mBrowserNavigatorAdapter = new BrowserNavigatorAdapter();
-            var browser = new BrowserNavigator(m_configuration.SearchRoot, _mBrowserNavigatorAdapter);
-            var mouseCount = new MouseCount();
+            BrowserNavigator browser = new BrowserNavigator(m_configuration.SearchRoot, _mBrowserNavigatorAdapter);
+            MouseCount mouseCount = new MouseCount();
 
-            var unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface, browser, mouseCount);
+            UnicornsAndRainbowsController unicornsAndRainbowsController = new UnicornsAndRainbowsController(userInterface, browser, mouseCount);
         }
     }
 }
